@@ -140,6 +140,10 @@ export const filters = [
           key: 'own_food_allowed',
           label: 'Own food allowed',
         },
+        {
+          key: 'test',
+          label: 'test',
+        },
       ],
     },
   },

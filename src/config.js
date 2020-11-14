@@ -24,7 +24,7 @@ const i18n = {
 // Without the 'origin' parameter, search will not work correctly
 // NOTE: Keyword search and ordering search results by distance can't be used at the same time. You can turn keyword
 // search off by changing the keywordFilterConfig parameter active to false in marketplace-custom-config.js
-const sortSearchByDistance = false;
+const sortSearchByDistance = true;
 
 // API supports custom processes to be used in booking process.
 // We need to specify it when we are initiating a new order
@@ -32,7 +32,7 @@ const sortSearchByDistance = false;
 //
 // In a way, 'processAlias' defines which transaction process (or processes)
 // this particular web application is able to handle.
-const bookingProcessAlias = 'flex-default-process/release-1';
+const bookingProcessAlias = 'preauth-daily-booking/release-1';
 
 // The transaction line item code for the main unit type in bookings.
 //
@@ -44,7 +44,7 @@ const bookingProcessAlias = 'flex-default-process/release-1';
 //
 // Note 2: Translations will use different translation keys for night, day or unit
 //         depending on the value chosen.
-const bookingUnitType = 'line-item/night';
+const bookingUnitType = 'line-item/day';
 
 // Should the application fetch available time slots (currently defined as
 // start and end dates) to be shown on listing page.
@@ -72,7 +72,7 @@ const currencyConfig = currencyConfiguration(currency);
 
 // Listing minimum price in currency sub units, e.g. cents.
 // 0 means no restriction to the price
-const listingMinimumPriceSubUnits = 0;
+const listingMinimumPriceSubUnits = 2000;
 
 // Sentry DSN (Data Source Name), a client key for authenticating calls to Sentry
 const sentryDsn = process.env.REACT_APP_SENTRY_DSN;
@@ -90,10 +90,10 @@ const streetAddress = 'Bulevardi 14';
 const canonicalRootURL = process.env.REACT_APP_CANONICAL_ROOT_URL;
 
 // Site title is needed in meta tags (bots and social media sharing reads those)
-const siteTitle = 'Saunatime';
+const siteTitle = 'GoHuntingUSA';
 
 // Twitter handle is needed in meta tags (twitter:site). Start it with '@' character
-const siteTwitterHandle = '@sharetribe';
+const siteTwitterHandle = '@GoHuntingUSA';
 
 // Instagram page is used in SEO schema (http://schema.org/Organization)
 const siteInstagramPage = null;
@@ -136,7 +136,7 @@ const maps = {
     // Limit location autocomplete to a one or more countries
     // using ISO 3166 alpha 2 country codes separated by commas.
     // If you want to limit the autocomplete, uncomment this value:
-    // countryLimit: ['AU'],
+     countryLimit: ['US'],
   },
 
   // When fuzzy locations are enabled, coordinates on maps are
@@ -146,7 +146,7 @@ const maps = {
   // coordinates are still accessible in the HTTP requests and the
   // Redux store.
   fuzzy: {
-    enabled: false,
+    enabled: true,
 
     // Amount of maximum offset in meters that is applied to obfuscate
     // the original coordinates. The actual value is random, but the
