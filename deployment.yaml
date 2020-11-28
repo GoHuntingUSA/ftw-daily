@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gohuntingusa-app
+spec:
+  selector:
+    app: gohuntingusa-app
+  ports:
+  - protocol: TCP
+    port: 443
+    targetPort: ui-port
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gohuntingusa-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gohuntingusa-app
+  template:
+    metadata:
+      labels:
+        app: gohuntingusa-app
+    spec:
+      containers:
+      - name: gohuntingusa-app
+        image: gcr.io/gohuntingusa/gohuntingusa@sha256:50a7c43b1c1281fab3605d14c52db9db831e470696c5f18094b2a8591546e9cc
+        ports:
+        - containerPort: 3000
+          name: ui-port
